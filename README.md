@@ -55,9 +55,13 @@ export function muteAllPartic ipantsExceptModerator(exclude: Array<string>) {
     dispatch(muteAllParticipantsExceptModerator(exclude));
 ```
 ## Screenshots
-![Step-1](1.png)
+* Step 1: Click Mute All(Except Moderator)
+![Step-1](1.png) 
+* Step 2: Confirmation Dialog
 ![Step-2](2.png)
+* Step 3: Before Confirmation (All participant's mic is on)
 ![Step-3](3.png)
+* Step 4: Before Confirmation (All participant's mic is off except Moderator)
 ![Step-4](4.png)
 
 
