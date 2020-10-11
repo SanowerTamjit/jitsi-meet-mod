@@ -54,6 +54,13 @@ export function muteAllPartic ipantsExceptModerator(exclude: Array<string>) {
 ```javascript 
     dispatch(muteAllParticipantsExceptModerator(exclude));
 ```
+## Screenshots
+![Step-1](1.png)
+![Step-2](2.png)
+![Step-3](3.png)
+![Step-4](4.png)
+
+
 
 ## _>Inspired by [Github gimre/jitsi-meet!](https://github.com/gimre/jitsi-meet)
 
