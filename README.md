@@ -1,6 +1,6 @@
 # Task: Add mute all except moderator in Jitsi Meet.
 
-## >>Manual Installation(Ubuntu 20.04)
+## _>Manual Installation(Ubuntu 20.04)
 * Install prosody xmpp server
 * Configuere the prosody xmpp server
 * Install nginx
@@ -9,7 +9,7 @@
 * Install jicofo (from sources)
 * Build jitsi-meet-mod in the server
 
-## >>Changes Files:
+## _>Changes Files:
 * add **'mute-everyone'** in jitsi-meet-mode/interface_config.js
 ```javascript
  TOOLBAR_BUTTONS: [
@@ -55,7 +55,7 @@ export function muteAllParticipantsExceptModerator(exclude: Array<string>) {
     dispatch(muteAllParticipantsExceptModerator(exclude));
 ```
 
-## >>Inspired by [Github gimre/jitsi-meet!](https://github.com/gimre/jitsi-meet)
+## _>Inspired by [Github gimre/jitsi-meet!](https://github.com/gimre/jitsi-meet)
 
 
 
