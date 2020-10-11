@@ -1,7 +1,6 @@
 // @flow
 import type { Dispatch } from 'redux';
 
-import UIEvents from '../../../service/UI/UIEvents';
 import {
     AUDIO_MUTE,
     createRemoteMuteConfirmedEvent,
@@ -16,6 +15,7 @@ import {
 } from '../base/participants';
 
 import { RemoteVideoMenu } from './components';
+import UIEvents from '../../../service/UI/UIEvents';
 
 declare var APP: Object;
 
