@@ -23,7 +23,7 @@
 * changes some notification title in **jitsi-meet-mode/lang/main.json**
 * create new function named **muteAllParticipantsExceptModerator** at **jitsi-meet-mod/react/features/remote-video-menu/actions.js**
 ```javascript
-export function muteAllParticipantsExceptModerator(exclude: Array<string>) {
+export function muteAllPartic ipantsExceptModerator(exclude: Array<string>) {
     return (dispatch: Dispatch<any>, getState: Function) => {
         const state = getState();
         const localId = getLocalParticipant(state).id;
