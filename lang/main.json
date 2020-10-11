@@ -232,7 +232,7 @@
         "micPermissionDeniedError": "You have not granted permission to use your microphone. You can still join the conference but others won't hear you. Use the camera button in the address bar to fix this.",
         "micUnknownError": "Cannot use microphone for an unknown reason.",
         "muteEveryoneElseDialog": "Once muted participant, you won't be able to unmute them, but they can unmute themselves at any time. Ok?.",
-        "muteEveryoneElseTitle": "Mute everyone except(Lvoe from different world :D) {{whom}}?",
+        "muteEveryoneElseTitle": "Mute everyone except(Love from different world :D) {{whom}}?",
         "muteEveryoneDialog": "Are you sure you want to mute everyone?(May be or not) You won't be able to unmute them, but they can unmute themselves at any time.",
         "muteEveryoneTitle": "Mute everyone? Please do it :P",
         "muteEveryoneSelf": "yourself",

@@ -11,7 +11,8 @@ import { hideDialog } from '../base/dialog';
 import { setAudioMuted } from '../base/media';
 import {
     getLocalParticipant,
-    muteRemoteParticipant
+    muteRemoteParticipant,
+    isParticipantModerator
 } from '../base/participants';
 
 import { RemoteVideoMenu } from './components';
@@ -76,6 +77,32 @@ export function muteAllParticipants(exclude: Array<string>) {
         participantIds
             .filter(id => !exclude.includes(id))
             .map(id => id === localId ? muteLocal(true) : muteRemote(id))
+            .map(dispatch);
+        /* eslint-enable no-confusing-arrow */
+    };
+}
+
+export function muteAllParticipantsExceptModerator(exclude: Array<string>) {
+    return (dispatch: Dispatch<any>, getState: Function) => {
+        const state = getState();
+        const localId = getLocalParticipant(state).id;
+        const participantIds = state['features/base/participants']
+            .map(p => p.id);
+
+        const participant = state['features/base/participants'].map(p => p);;
+
+        /* eslint-disable no-confusing-arrow */
+        // participantIds
+        //     .filter(id => !exclude.includes(id))
+        //     .map(id => id === localId ? muteLocal(true) : muteRemote(id))
+        //     .map(dispatch);
+        // participantIds
+        //     // .filter(id => !exclude.includes(id))
+        //     .map(id => isParticipantModerator(id) ? muteLocal(false) : muteRemote(id))
+        //     .map(dispatch);
+        console.log(participant);
+        participant
+            .map(p => (p.role === "moderator") ? muteLocal(false) : muteRemote(p.id))
             .map(dispatch);
         /* eslint-enable no-confusing-arrow */
     };

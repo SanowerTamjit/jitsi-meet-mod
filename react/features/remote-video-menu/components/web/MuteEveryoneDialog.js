@@ -6,6 +6,7 @@ import { Dialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
 import { connect } from '../../../base/redux';
 import { muteAllParticipants } from '../../actions';
+import { muteAllParticipantsExceptModerator } from '../../actions';
 import AbstractMuteRemoteParticipantDialog, {
     type Props as AbstractProps
 } from '../AbstractMuteRemoteParticipantDialog';
@@ -87,7 +88,8 @@ class MuteEveryoneDialog extends AbstractMuteRemoteParticipantDialog<Props> {
             exclude
         } = this.props;
 
-        dispatch(muteAllParticipants(exclude));
+        // dispatch(muteAllParticipants(exclude));
+        dispatch(muteAllParticipantsExceptModerator(exclude));
 
         return true;
     }
