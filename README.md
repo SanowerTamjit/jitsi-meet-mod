@@ -1,3 +1,61 @@
+# Task: Add mute all except moderator in Jitsi Meet.
+
+##Manual Installation(Ubuntu 20.04)
+*Install prosody xmpp server
+*Configuere the prosody xmpp server
+*Install nginx
+*Configure nginx with openssl self generate signed certificate
+*Install jitsi-videobridge 
+*Install jicofo (from sources)
+*Build jitsi-meet-mod in the server
+
+##Changes Files:
+* jitsi-meet-mode/interface_config.js
+```javascript
+ TOOLBAR_BUTTONS: [
+        'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
+        'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+        'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+        'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
+        'tileview', 'videobackgroundblur', 'download', 'help', **'mute-everyone'**, 'security'
+    ],
+```
+*changes some notification title in **jitsi-meet-mode/lang/main.json**
+*create new function named **muteAllParticipantsExceptModerator** at **jitsi-meet-mod/react/features/remote-video-menu/actions.js**
+```javascript
+export function muteAllParticipantsExceptModerator(exclude: Array<string>) {
+    return (dispatch: Dispatch<any>, getState: Function) => {
+        const state = getState();
+        const localId = getLocalParticipant(state).id;
+        const participantIds = state['features/base/participants']
+            .map(p => p.id);
+
+        const participant = state['features/base/participants'].map(p => p);;
+
+        /* eslint-disable no-confusing-arrow */
+        // participantIds
+        //     .filter(id => !exclude.includes(id))
+        //     .map(id => id === localId ? muteLocal(true) : muteRemote(id))
+        //     .map(dispatch);
+        // participantIds
+        //     // .filter(id => !exclude.includes(id))
+        //     .map(id => isParticipantModerator(id) ? muteLocal(false) : muteRemote(id))
+        //     .map(dispatch);
+        console.log(participant);
+        participant
+            .map(p => (p.role === "moderator") ? muteLocal(false) : muteRemote(p.id))
+            .map(dispatch);
+        /* eslint-enable no-confusing-arrow */
+    };
+}
+
+```
+*Call **muteAllParticipantsExceptModerator** from **jitsi-meet-mod/react/features/remote-video-menu/components/web/MuteEveryoneDialog.js**
+```javascript 
+    dispatch(muteAllParticipantsExceptModerator(exclude));
+```
+
+
 # Jitsi Meet - Secure, Simple and Scalable Video Conferences
 
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses [Jitsi Videobridge](https://jitsi.org/videobridge) to provide high quality, [secure](https://jitsi.org/security) and scalable video conferences. Jitsi Meet in action can be seen at [here at the session #482 of the VoIP Users Conference](http://youtu.be/7vFUVClsNh0).
