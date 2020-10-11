@@ -10,14 +10,14 @@
 *Build jitsi-meet-mod in the server
 
 ##Changes Files:
-* jitsi-meet-mode/interface_config.js
+* add **'mute-everyone'** in jitsi-meet-mode/interface_config.js
 ```javascript
  TOOLBAR_BUTTONS: [
         'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
         'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'videobackgroundblur', 'download', 'help', **'mute-everyone'**, 'security'
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security'
     ],
 ```
 *changes some notification title in **jitsi-meet-mode/lang/main.json**
@@ -54,6 +54,9 @@ export function muteAllParticipantsExceptModerator(exclude: Array<string>) {
 ```javascript 
     dispatch(muteAllParticipantsExceptModerator(exclude));
 ```
+
+##Inspired by [Github gimre/jitsi-meet!](https://github.com/gimre/jitsi-meet)
+
 
 
 # Jitsi Meet - Secure, Simple and Scalable Video Conferences
